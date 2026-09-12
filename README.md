@@ -1,16 +1,7 @@
 # Zeno - Gestão de Produtos
 
-Aplicação de gestão de produtos construída com **Next.js** e **Tailwind CSS** como parte do teste técnico da Zeno.
+Aplicação de gestão de produtos construída com **Next.js** e **Tailwind CSS**
 
-## Funcionalidades
-
-- ✅ Listar produtos com paginação
-- ✅ Criar novo produto
-- ✅ Visualizar detalhes do produto
-- ✅ Editar produto
-- ✅ Deletar produto
-- ✅ Busca por nome e descrição
-- ✅ Selecionar itens por página
 
 ## Stack Técnica
 
@@ -42,10 +33,4 @@ npm run dev
 
 Acesse [http://localhost:3000](http://localhost:3000)
 
-## API
 
-Base URL: `https://backend-nodejs-q65c.onrender.com`
-
-## Deploy
-
-Aplicação disponível em: _[inserir link do deploy]_
