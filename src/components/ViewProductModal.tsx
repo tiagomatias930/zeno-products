@@ -1,6 +1,8 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { IProduct } from '@/types/product';
+import { getProductByIdAction } from '@/app/actions/products';
 
 interface ViewProductModalProps {
   product: IProduct;
@@ -14,7 +16,23 @@ function formatPrice(price: number): string {
   return `${intPart},${parts[1]}`;
 }
 
-export default function ViewProductModal({ product, open, onClose }: ViewProductModalProps) {
+export default function ViewProductModal({ product: initialProduct, open, onClose }: ViewProductModalProps) {
+  const [product, setProduct] = useState<IProduct>(initialProduct);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (open && initialProduct._id) {
+      setProduct(initialProduct);
+      setLoading(true);
+      getProductByIdAction(initialProduct._id)
+        .then((res) => {
+          if (res?.data) setProduct(res.data);
+        })
+        .catch((err) => console.error('Error fetching product by id:', err))
+        .finally(() => setLoading(false));
+    }
+  }, [open, initialProduct]);
+
   if (!open) return null;
 
   return (

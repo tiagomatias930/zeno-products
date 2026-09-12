@@ -27,3 +27,9 @@ export async function deleteProductAction(id: string) {
   await deleteProduct(id);
   revalidatePath('/');
 }
+
+export async function getProductByIdAction(id: string) {
+  const { getProductById } = await import('@/lib/api');
+  return await getProductById(id);
+}
+
