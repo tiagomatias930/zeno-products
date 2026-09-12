@@ -9,10 +9,9 @@ interface ViewProductModalProps {
 }
 
 function formatPrice(price: number): string {
-  return price.toLocaleString('pt-AO', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  const parts = price.toFixed(2).split('.');
+  const intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return `${intPart},${parts[1]}`;
 }
 
 export default function ViewProductModal({ product, open, onClose }: ViewProductModalProps) {

@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { IProduct } from '@/types/product';
-import { deleteProductAction } from '@/app/actions/products';
 import ProductModal from './ProductModal';
 import ViewProductModal from './ViewProductModal';
 import DeleteDialog from './DeleteDialog';
@@ -13,10 +12,9 @@ interface ProductRowProps {
 }
 
 function formatPrice(price: number): string {
-  return price.toLocaleString('pt-AO', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
+  const parts = price.toFixed(2).split('.');
+  const intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return `${intPart},${parts[1]}`;
 }
 
 export default function ProductRow({ product }: ProductRowProps) {
