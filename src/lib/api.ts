@@ -15,13 +15,15 @@ export async function getProducts(
   return res.json();
 }
 
-export async function getProductById(id: string): Promise<ProductResponse> {
+export async function getProductById(id: string): Promise<{ statusText: string; data: IProduct }> {
   const res = await fetch(
     `${BASE_URL}/api/products/by-id?id=${id}&user=${USER_ID}`,
     { cache: 'no-store' }
   );
   if (!res.ok) throw new Error('Failed to fetch product');
-  return res.json();
+  const json = await res.json();
+  const productData = Array.isArray(json.data) ? json.data[0] : json.data;
+  return { ...json, data: productData };
 }
 
 export async function createProduct(

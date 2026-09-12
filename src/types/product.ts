@@ -22,5 +22,5 @@ export interface ProductsResponse {
 
 export interface ProductResponse {
   statusText: string;
-  data: IProduct;
+  data: IProduct | IProduct[];
 }

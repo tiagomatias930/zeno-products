@@ -11,8 +11,9 @@ interface ProductRowProps {
   product: IProduct;
 }
 
-function formatPrice(price: number): string {
-  const parts = price.toFixed(2).split('.');
+function formatPrice(price?: number | null): string {
+  if (price === undefined || price === null || isNaN(Number(price))) return '0,00';
+  const parts = Number(price).toFixed(2).split('.');
   const intPart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   return `${intPart},${parts[1]}`;
 }
