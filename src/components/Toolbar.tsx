@@ -71,10 +71,10 @@ export default function Toolbar() {
   const hasActiveFilters = !!currentSort || !!search;
 
   return (
-    <div className="flex items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
+    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         {/* Search */}
-        <div className="relative">
+        <div className="relative flex-1 sm:flex-none">
           <svg
             className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
             fill="none"
@@ -93,7 +93,7 @@ export default function Toolbar() {
             placeholder="Buscar por nome, descrição..."
             value={search}
             onChange={(e) => handleSearch(e.target.value)}
-            className="w-64 rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm text-gray-700 placeholder-gray-400 outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400"
+            className="w-full sm:w-64 rounded-lg border border-gray-200 bg-white py-2 pl-10 pr-4 text-sm text-gray-700 placeholder-gray-400 outline-none focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400"
           />
           {isPending && (
             <div className="absolute right-3 top-1/2 -translate-y-1/2">
@@ -106,7 +106,7 @@ export default function Toolbar() {
         <div className="relative" ref={filtersRef}>
           <button
             onClick={() => setFiltersOpen(!filtersOpen)}
-            className={`flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors ${
+            className={`flex items-center gap-2 rounded-lg border px-3 sm:px-4 py-2 text-sm font-medium transition-colors ${
               hasActiveFilters
                 ? 'border-indigo-300 bg-indigo-50 text-indigo-700'
                 : 'border-gray-200 bg-white text-gray-700 hover:bg-gray-50'
@@ -194,7 +194,7 @@ export default function Toolbar() {
       </div>
 
       {/* Page size */}
-      <div className="flex items-center gap-2 text-sm text-gray-600">
+      <div className="flex items-center justify-between sm:justify-end gap-2 text-sm text-gray-600">
         <span>Mostrar</span>
         <select
           value={currentPageSize}

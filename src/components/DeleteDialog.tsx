@@ -23,13 +23,13 @@ export default function DeleteDialog({ product, open, onClose }: DeleteDialogPro
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
         className="fixed inset-0 bg-black/40 transition-opacity"
         onClick={onClose}
       />
 
-      <div className="relative z-10 w-full max-w-sm rounded-2xl bg-white p-6 shadow-xl">
+      <div className="relative z-10 w-full max-w-sm rounded-2xl bg-white p-5 sm:p-6 shadow-xl">
         <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
           <svg
             className="h-6 w-6 text-red-600"

@@ -47,11 +47,11 @@ export default async function Home({ searchParams }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50/50 p-6 md:p-10">
+    <main className="min-h-screen bg-gray-50/50 p-3 sm:p-6 md:p-10">
       <div className="mx-auto max-w-7xl">
         <Header />
 
-        <div className="mt-8 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+        <div className="mt-6 sm:mt-8 rounded-2xl border border-gray-100 bg-white p-4 sm:p-6 shadow-sm">
           <Suspense fallback={null}>
             <Toolbar />
           </Suspense>

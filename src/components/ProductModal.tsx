@@ -28,7 +28,7 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/40 transition-opacity"
@@ -36,7 +36,7 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
       />
 
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+      <div className="relative z-10 w-full max-w-md rounded-2xl bg-white p-5 sm:p-6 shadow-xl max-h-[90vh] overflow-y-auto">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-lg font-semibold text-gray-900">
             {isEdit ? 'Editar Produto' : 'Novo Produto'}

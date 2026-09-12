@@ -54,13 +54,13 @@ export default function Pagination({ total, currentPage, totalPages }: Paginatio
   }
 
   return (
-    <div className="flex items-center justify-between border-t border-gray-100 pt-4">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-gray-100 pt-4">
       <p className="text-sm text-indigo-600 font-medium">
         Total: {total} {total === 1 ? 'item' : 'itens'}
       </p>
 
       {totalPages > 1 && (
-        <div className="flex items-center gap-1">
+        <div className="flex flex-wrap items-center justify-center gap-1">
           {/* Previous */}
           <button
             onClick={() => goToPage(currentPage - 1)}

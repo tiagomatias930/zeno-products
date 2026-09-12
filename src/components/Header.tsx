@@ -2,11 +2,11 @@ import NewProductButton from './NewProductButton';
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between">
-      <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100">
+    <header className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="flex items-start sm:items-center gap-3 sm:gap-4">
+        <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-100">
           <svg
-            className="h-6 w-6 text-indigo-600"
+            className="h-5 w-5 sm:h-6 sm:w-6 text-indigo-600"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -20,14 +20,16 @@ export default function Header() {
           </svg>
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Produtos</h1>
-          <p className="text-sm text-gray-500">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Produtos</h1>
+          <p className="text-xs sm:text-sm text-gray-500">
             Gerencie os produtos da sua loja. Aqui você pode visualizar, editar,
             adicionar ou remover produtos.
           </p>
         </div>
       </div>
-      <NewProductButton />
+      <div className="self-end sm:self-auto">
+        <NewProductButton />
+      </div>
     </header>
   );
 }
